@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const tastekim = require('./routes/tastekim');
-const JG = require('./routes/JG');
-const DH = require('./routes/DH');
+const { tastekim, JG, DH } = require('./routes');
 
-app.use(tastekim, JG, DH);
+app.use(tastekim, DH);
+
+app.use('/JG',JG)
 
 app.listen(3000, () => {
     console.log("listening on port 3000")
